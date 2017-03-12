@@ -7,6 +7,9 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         filename: 'build.js'
     },
+    externals: {
+        jquery: 'window.$'
+    },
     resolve: {
         extensions: ['.js', '.jsx', '.css', '.scss', '.vue', '.vuex']
     },
