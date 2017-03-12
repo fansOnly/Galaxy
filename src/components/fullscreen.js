@@ -2,22 +2,17 @@
 var $ = require('jquery');
 
 let options;
-
-var FullScreen = {
+const FullScreen = {
     init: init
 }
 
-function init(paramObj) {
+function init(param) {
     options = $.extend({
-        title: 'welcome',
-        subTitle: 'FullScreen'
-    }, paramObj);
-    bindEvent();
+        title: 'Hello DeluxSlide',
+        subTitle: 'This is FirstApp'
+    }, param);
+
+    console.log(options);
 }
 
-function bindEvent() {
-    $('body').html(options.title + ` ` + options.subTitle);
-}
-
-
-export default FullScreen;
+export default FullScreen

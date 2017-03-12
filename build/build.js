@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -148,33 +148,8 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 /*auto create*/
-var $ = __webpack_require__(8);
 
-var options = void 0;
-
-var FullScreen = {
-    init: init
-};
-
-function init(paramObj) {
-    options = $.extend({
-        title: 'welcome',
-        subTitle: 'FullScreen'
-    }, paramObj);
-    bindEvent();
-}
-
-function bindEvent() {
-    $('body').html(options.title + ' ' + options.subTitle);
-}
-
-exports.default = FullScreen;
 
 /***/ }),
 /* 4 */
@@ -193,7 +168,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n", "", {"version":3,"sources":["E:/SecretCastle/Other/Galaxy/src/assets/E:\\SecretCastle\\Other\\Galaxy/src\\assets\\common.scss","E:/SecretCastle/Other/Galaxy/src/assets/E:\\SecretCastle\\Other\\Galaxy/src\\assets\\intro.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;ACXD;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB","file":"main.scss","sourcesContent":["* {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\ndl,\r\ndt,\r\ndd,\r\nul,\r\nli {\r\n    list-style: none;\r\n}\r\n\r\n$theme :#459AE9;","header {\r\n    position: relative;\r\n    background: $theme;\r\n}\r\n\r\n.container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    background: $theme;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    html {\r\n        font-size: 12px;\r\n    }\r\n    .container {\r\n        width: 750px;\r\n    }\r\n}\r\n\r\n@media(min-width:1000px) {\r\n    html {\r\n        font-size: 14px;\r\n    }\r\n    .container {\r\n        width: 900px;\r\n    }\r\n}\r\n\r\n@media (min-width:1200px) {\r\n    html {\r\n        font-size: 16px;\r\n    }\r\n    .container {\r\n        width: 1100px;\r\n    }\r\n}\r\n\r\n.navTitle {\r\n    line-height: 2rem;\r\n    padding: 10px;\r\n    color: #fff;\r\n    font-size: 1.5rem;\r\n}\r\n\r\n.topPicShow {\r\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\r\n    height: 37.5rem;\r\n    background-repeat: no-repeat;\r\n    background-size: 100%;\r\n    filter: blur(1px);\r\n}"],"sourceRoot":""}]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n", "", {"version":3,"sources":["/Users/chenfangzhong/Hunter/Galaxy/src/assets/common.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/intro.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;ACXD;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB","file":"main.scss","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}\n\ndl,\ndt,\ndd,\nul,\nli {\n    list-style: none;\n}\n\n$theme :#459AE9;","header {\n    position: relative;\n    background: $theme;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    background: $theme;\n}\n\n@media(min-width:768px) {\n    html {\n        font-size: 12px;\n    }\n    .container {\n        width: 750px;\n    }\n}\n\n@media(min-width:1000px) {\n    html {\n        font-size: 14px;\n    }\n    .container {\n        width: 900px;\n    }\n}\n\n@media (min-width:1200px) {\n    html {\n        font-size: 16px;\n    }\n    .container {\n        width: 1100px;\n    }\n}\n\n.navTitle {\n    line-height: 2rem;\n    padding: 10px;\n    color: #fff;\n    font-size: 1.5rem;\n}\n\n.topPicShow {\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\n    height: 37.5rem;\n    background-repeat: no-repeat;\n    background-size: 100%;\n    filter: blur(1px);\n}"],"sourceRoot":""}]);
 
 // exports
 
@@ -508,12 +483,6 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-module.exports = window.$;
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
