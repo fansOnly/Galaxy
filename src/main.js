@@ -1,4 +1,3 @@
 import './assets/main';
-import './component';
-
-console.log('run');
+import DS from './component';
+global.DS = DS;

@@ -73,15 +73,17 @@
 "use strict";
 
 
-var _fullscreen = __webpack_require__(2);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _fullscreen2 = _interopRequireDefault(_fullscreen);
+var _FullScreen = __webpack_require__(3);
 
-var _slide = __webpack_require__(3);
-
-var _slide2 = _interopRequireDefault(_slide);
+var _FullScreen2 = _interopRequireDefault(_FullScreen);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = { FullScreen: _FullScreen2.default }; /*这是自动写入的文件，不用配置*/
 
 /***/ }),
 /* 1 */
@@ -111,10 +113,29 @@ if(false) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/*从这里开始写代码吧*/
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -122,8 +143,20 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*从这里开始写代码吧*/
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/*auto create*/
+
+var FullScreen = {
+    init: function init(options) {
+        console.log(options);
+    }
+};
+
+exports.default = FullScreen;
 
 /***/ }),
 /* 4 */
@@ -452,13 +485,18 @@ function updateLink(linkElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(global) {
 
 __webpack_require__(1);
 
-__webpack_require__(0);
+var _component = __webpack_require__(0);
 
-console.log('run');
+var _component2 = _interopRequireDefault(_component);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+global.DS = _component2.default;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ })
 /******/ ]);

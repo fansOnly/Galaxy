@@ -1,3 +1,4 @@
-/*这是一个自动写入的文件*/
- import fullscreen from './components/fullscreen.js' 
- import slide from './components/slide.js' 
+/*这是自动写入的文件，不用配置*/
+import FullScreen from './components/FullScreen.js'; 
+
+ export default {FullScreen}
