@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -81,9 +81,14 @@ var _FullScreen = __webpack_require__(3);
 
 var _FullScreen2 = _interopRequireDefault(_FullScreen);
 
+var _Tab = __webpack_require__(4);
+
+var _Tab2 = _interopRequireDefault(_Tab);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = { FullScreen: _FullScreen2.default }; /*这是自动写入的文件，不用配置*/
+/*这是自动写入的文件，不用配置*/
+exports.default = { FullScreen: _FullScreen2.default, Tab: _Tab2.default };
 
 /***/ }),
 /* 1 */
@@ -92,10 +97,10 @@ exports.default = { FullScreen: _FullScreen2.default }; /*这是自动写入的�
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(4);
+var content = __webpack_require__(5);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(6)(content, {});
+var update = __webpack_require__(7)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -149,12 +154,25 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 /*auto create*/
+var $ = __webpack_require__(8);
+
+var options = void 0;
 
 var FullScreen = {
-    init: function init(options) {
-        console.log(options);
-    }
+    init: init
 };
+
+function init(paramObj) {
+    options = $.extend({
+        title: 'welcome',
+        subTitle: 'FullScreen'
+    }, paramObj);
+    bindEvent();
+}
+
+function bindEvent() {
+    $('body').html(options.title + ' ' + options.subTitle);
+}
 
 exports.default = FullScreen;
 
@@ -162,7 +180,15 @@ exports.default = FullScreen;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)();
+"use strict";
+/*auto create*/
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)();
 // imports
 
 
@@ -173,7 +199,7 @@ exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /*
@@ -229,7 +255,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /*
@@ -481,7 +507,13 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = window.$;
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
