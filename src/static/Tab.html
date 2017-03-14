@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="test">
+        <div id="tabSwitch" amt="tab">
+            <div class="tab_head setFlex">
+                <li>tab1</li>
+                <li>tab2</li>
+                <li>tab3</li>
+                <li>tab4</li>
+            </div>
+            <div class="tab_content">
+                <div>
+                    content1
+                </div>
+                <div>
+                    content2
+                </div>
+                <div>
+                    content3
+                </div>
+                <div>
+                    content4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../build.js"></script>
+    <script>
+        var tabView = new DS.Tab({
+            mainHook: 'tabSwitch',
+            tabHook: '.tab_head',
+            contentHook: '.tab_content'
+        });
+    </script>
+</body>
+
+</html>

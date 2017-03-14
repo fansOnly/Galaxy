@@ -63,11 +63,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = window.$;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77,11 +83,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _FullScreen = __webpack_require__(3);
+var _FullScreen = __webpack_require__(4);
 
 var _FullScreen2 = _interopRequireDefault(_FullScreen);
 
-var _Tab = __webpack_require__(4);
+var _Tab = __webpack_require__(5);
 
 var _Tab2 = _interopRequireDefault(_Tab);
 
@@ -91,16 +97,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = { FullScreen: _FullScreen2.default, Tab: _Tab2.default };
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(7);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, {});
+var update = __webpack_require__(9)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -117,7 +123,7 @@ if(false) {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 var g;
@@ -144,37 +150,208 @@ module.exports = g;
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*auto create*/
-
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*auto create*/
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/*auto create*/
+var $ = __webpack_require__(0);
+
+var options = void 0;
+var FullScreen = {
+    init: init
+};
+
+function init(param) {
+    options = $.extend({
+        title: 'Hello DeluxSlide',
+        subTitle: 'This is FirstApp'
+    }, param);
+
+    console.log(options);
+}
+
+exports.default = FullScreen;
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _core = __webpack_require__(6);
+
+var _core2 = _interopRequireDefault(_core);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*auto create*/
+
+
+var $ = __webpack_require__(0);
+
+var Tab = function (_Core) {
+    _inherits(Tab, _Core);
+
+    function Tab(options) {
+        _classCallCheck(this, Tab);
+
+        return _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, options));
+    }
+
+    _createClass(Tab, [{
+        key: 'initFn',
+        value: function initFn() {
+            _get(Tab.prototype.__proto__ || Object.getPrototypeOf(Tab.prototype), 'initFn', this).call(this);
+            if (this.Amt) {
+                this.initEvent();
+            } else {
+                throw 'Please Check You \'amt\' tag';
+            }
+        }
+    }, {
+        key: 'initEvent',
+        value: function initEvent() {
+            var _this2 = this;
+
+            // let t_h = this.Hook.tabHook;
+            // let _hook = document.getElementById(t_h).querySelectorAll('li');
+            // var _ = this;
+            // [..._hook].forEach((val, index) => {
+            //     val.addEventListener('click', _.onclick, false)
+            // });
+            var trigger = this.Hook.tabHook + ' li';
+            $(document).on('click', trigger, function (e) {
+                var $this = $(e.currentTarget);
+                var index = $this.index();
+                _this2.selector($this);
+            });
+        }
+    }, {
+        key: 'selector',
+        value: function selector(index) {
+            var trigger = this.Hook.tabHook + ' li';
+            if (!index.hasClass('active')) {
+                $(trigger).removeClass('active');
+                index.addClass('active');
+                this.selectDom();
+            }
+        }
+    }, {
+        key: 'selectDom',
+        value: function selectDom() {
+            var content = this.Hook.contentHook + '+div';
+            console.log($(content));
+        }
+    }]);
+
+    return Tab;
+}(_core2.default);
+
+exports.default = Tab;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Father
+ */
+
+var Core = function () {
+    function Core(options) {
+        _classCallCheck(this, Core);
+
+        this.options = options;
+        this.Amt = false;
+        this.initFn();
+    }
+
+    _createClass(Core, [{
+        key: "initFn",
+        value: function initFn() {
+            this.checkAmt();
+        }
+    }, {
+        key: "initEvent",
+        value: function initEvent() {
+            return true;
+        }
+    }, {
+        key: "checkAmt",
+        value: function checkAmt() {
+            var hasTagAmt = this.getDom.hasAttribute('amt');
+            if (hasTagAmt) {
+                this.Amt = true;
+            }
+        }
+    }, {
+        key: "getDom",
+        get: function get() {
+            var dom = document.getElementById(this.options.mainHook);
+            return dom;
+        }
+    }, {
+        key: "Hook",
+        get: function get() {
+            return {
+                "mainHook": this.options.mainHook,
+                "tabHook": this.options.tabHook,
+                "contentHook": this.options.contentHook
+            };
+        }
+    }]);
+
+    return Core;
+}();
+
+exports.default = Core;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n", "", {"version":3,"sources":["/Users/chenfangzhong/Hunter/Galaxy/src/assets/common.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/intro.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;ACXD;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB","file":"main.scss","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}\n\ndl,\ndt,\ndd,\nul,\nli {\n    list-style: none;\n}\n\n$theme :#459AE9;","header {\n    position: relative;\n    background: $theme;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    background: $theme;\n}\n\n@media(min-width:768px) {\n    html {\n        font-size: 12px;\n    }\n    .container {\n        width: 750px;\n    }\n}\n\n@media(min-width:1000px) {\n    html {\n        font-size: 14px;\n    }\n    .container {\n        width: 900px;\n    }\n}\n\n@media (min-width:1200px) {\n    html {\n        font-size: 16px;\n    }\n    .container {\n        width: 1100px;\n    }\n}\n\n.navTitle {\n    line-height: 2rem;\n    padding: 10px;\n    color: #fff;\n    font-size: 1.5rem;\n}\n\n.topPicShow {\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\n    height: 37.5rem;\n    background-repeat: no-repeat;\n    background-size: 100%;\n    filter: blur(1px);\n}"],"sourceRoot":""}]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\n.setFlex {\n  display: flex;\n  display: -webkit-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  -webkit-justigy-content: flex-start; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n\n.tabSwitch {\n  position: relative; }\n\n.tab_head {\n  position: relative; }\n\n.tab_head li {\n  display: block;\n  flex: 1;\n  padding: 5px 10px;\n  border: 1px solid #ccc; }\n\n.tab_head li.active {\n  background: blueviolet;\n  color: #fff; }\n\n.tab_content {\n  position: relative; }\n\n.tab_content div {\n  display: none; }\n", "", {"version":3,"sources":["/Users/chenfangzhong/Hunter/Galaxy/src/assets/common.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/intro.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/tab.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;AAGD;EACI,cAAa;EACb,sBAAqB;EACrB,oBAAmB;EACnB,4BAA2B;EAC3B,oCACJ,EAAE;;ACpBF;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB;;ACnDD;EACI,mBAAkB,EACrB;;AAED;EACI,mBAAkB,EACrB;;AAED;EACI,eAAc;EACd,QAAO;EACP,kBAAiB;EACjB,uBAAsB,EACzB;;AAED;EACI,uBAAsB;EACtB,YAAW,EACd;;AAED;EACI,mBAAkB,EACrB;;AAED;EACI,cAAa,EAChB","file":"main.scss","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}\n\ndl,\ndt,\ndd,\nul,\nli {\n    list-style: none;\n}\n\n$theme :#459AE9;\n.setFlex {\n    display: flex;\n    display: -webkit-flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    -webkit-justigy-content: flex-start\n}","header {\n    position: relative;\n    background: $theme;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    background: $theme;\n}\n\n@media(min-width:768px) {\n    html {\n        font-size: 12px;\n    }\n    .container {\n        width: 750px;\n    }\n}\n\n@media(min-width:1000px) {\n    html {\n        font-size: 14px;\n    }\n    .container {\n        width: 900px;\n    }\n}\n\n@media (min-width:1200px) {\n    html {\n        font-size: 16px;\n    }\n    .container {\n        width: 1100px;\n    }\n}\n\n.navTitle {\n    line-height: 2rem;\n    padding: 10px;\n    color: #fff;\n    font-size: 1.5rem;\n}\n\n.topPicShow {\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\n    height: 37.5rem;\n    background-repeat: no-repeat;\n    background-size: 100%;\n    filter: blur(1px);\n}",".tabSwitch {\n    position: relative;\n}\n\n.tab_head {\n    position: relative;\n}\n\n.tab_head li {\n    display: block;\n    flex: 1;\n    padding: 5px 10px;\n    border: 1px solid #ccc;\n}\n\n.tab_head li.active {\n    background: blueviolet;\n    color: #fff;\n}\n\n.tab_content {\n    position: relative;\n}\n\n.tab_content div {\n    display: none;\n}"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /*
@@ -230,7 +407,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*
@@ -482,22 +659,22 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-__webpack_require__(1);
+__webpack_require__(2);
 
-var _component = __webpack_require__(0);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 global.DS = _component2.default;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ })
 /******/ ]);

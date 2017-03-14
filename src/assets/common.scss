@@ -12,3 +12,15 @@ li {
 }
 
 $theme :#459AE9;
+.setFlex {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    -webkit-justigy-content: flex-start
+}
+
+.active {
+    background: blueviolet;
+    color: #fff;
+}

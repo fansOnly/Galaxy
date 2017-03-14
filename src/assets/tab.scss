@@ -1,0 +1,14 @@
+.tabSwitch {
+    position: relative;
+}
+
+.tab_head {
+    position: relative;
+}
+
+.tab_head li {
+    display: block;
+    flex: 1;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
