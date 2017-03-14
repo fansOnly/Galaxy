@@ -24,7 +24,7 @@ class Tab extends Core {
         // [..._hook].forEach((val, index) => {
         //     val.addEventListener('click', _.onclick, false)
         // });
-        let trigger = this.Hook.tabHook + '>li';
+        let trigger = this.tab_title;
         this.initSet();
         $(document).on('click', trigger, (e) => {
             let $this = $(e.currentTarget);
@@ -34,8 +34,8 @@ class Tab extends Core {
     }
 
     initSet() {
-        let trigger = this.Hook.tabHook + '>li';
-        let content = this.Hook.contentHook + '>div';
+        let trigger = this.tab_title;
+        let content = this.tab_content;
         //li
         $(trigger).removeClass('active');
         $(trigger).eq(0).addClass('active');
@@ -45,19 +45,25 @@ class Tab extends Core {
     }
 
     selector(dom, index) {
-        let trigger = this.Hook.tabHook + '>li';
+        let trigger = this.tab_title;
         $(trigger).removeClass('active');
         dom.addClass('active');
         this.selectDom(index);
     }
 
     selectDom(index) {
-        let content = this.Hook.contentHook + '>div';
+        let content = this.tab_content;
         $(content).hide();
         $(content).eq(index).show();
     }
 
+    get tab_title() {
+        return this.Hook.tabHook + '>li';
+    }
 
+    get tab_content() {
+        return this.Hook.contentHook + '>div';
+    }
 }
 
 export default Tab;

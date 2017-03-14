@@ -238,28 +238,50 @@ var Tab = function (_Core) {
             // [..._hook].forEach((val, index) => {
             //     val.addEventListener('click', _.onclick, false)
             // });
-            var trigger = this.Hook.tabHook + ' li';
+            var trigger = this.tab_title;
+            this.initSet();
             $(document).on('click', trigger, function (e) {
                 var $this = $(e.currentTarget);
                 var index = $this.index();
-                _this2.selector($this);
+                _this2.selector($this, index);
             });
         }
     }, {
+        key: 'initSet',
+        value: function initSet() {
+            var trigger = this.tab_title;
+            var content = this.tab_content;
+            //li
+            $(trigger).removeClass('active');
+            $(trigger).eq(0).addClass('active');
+            //content
+            $(content).hide();
+            $(content).eq(0).show();
+        }
+    }, {
         key: 'selector',
-        value: function selector(index) {
-            var trigger = this.Hook.tabHook + ' li';
-            if (!index.hasClass('active')) {
-                $(trigger).removeClass('active');
-                index.addClass('active');
-                this.selectDom();
-            }
+        value: function selector(dom, index) {
+            var trigger = this.tab_title;
+            $(trigger).removeClass('active');
+            dom.addClass('active');
+            this.selectDom(index);
         }
     }, {
         key: 'selectDom',
-        value: function selectDom() {
-            var content = this.Hook.contentHook + '+div';
-            console.log($(content));
+        value: function selectDom(index) {
+            var content = this.tab_content;
+            $(content).hide();
+            $(content).eq(index).show();
+        }
+    }, {
+        key: 'tab_title',
+        get: function get() {
+            return this.Hook.tabHook + '>li';
+        }
+    }, {
+        key: 'tab_content',
+        get: function get() {
+            return this.Hook.contentHook + '>div';
         }
     }]);
 
@@ -345,7 +367,7 @@ exports = module.exports = __webpack_require__(8)();
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\n.setFlex {\n  display: flex;\n  display: -webkit-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  -webkit-justigy-content: flex-start; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n\n.tabSwitch {\n  position: relative; }\n\n.tab_head {\n  position: relative; }\n\n.tab_head li {\n  display: block;\n  flex: 1;\n  padding: 5px 10px;\n  border: 1px solid #ccc; }\n\n.tab_head li.active {\n  background: blueviolet;\n  color: #fff; }\n\n.tab_content {\n  position: relative; }\n\n.tab_content div {\n  display: none; }\n", "", {"version":3,"sources":["/Users/chenfangzhong/Hunter/Galaxy/src/assets/common.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/intro.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/tab.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;AAGD;EACI,cAAa;EACb,sBAAqB;EACrB,oBAAmB;EACnB,4BAA2B;EAC3B,oCACJ,EAAE;;ACpBF;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB;;ACnDD;EACI,mBAAkB,EACrB;;AAED;EACI,mBAAkB,EACrB;;AAED;EACI,eAAc;EACd,QAAO;EACP,kBAAiB;EACjB,uBAAsB,EACzB;;AAED;EACI,uBAAsB;EACtB,YAAW,EACd;;AAED;EACI,mBAAkB,EACrB;;AAED;EACI,cAAa,EAChB","file":"main.scss","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}\n\ndl,\ndt,\ndd,\nul,\nli {\n    list-style: none;\n}\n\n$theme :#459AE9;\n.setFlex {\n    display: flex;\n    display: -webkit-flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    -webkit-justigy-content: flex-start\n}","header {\n    position: relative;\n    background: $theme;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    background: $theme;\n}\n\n@media(min-width:768px) {\n    html {\n        font-size: 12px;\n    }\n    .container {\n        width: 750px;\n    }\n}\n\n@media(min-width:1000px) {\n    html {\n        font-size: 14px;\n    }\n    .container {\n        width: 900px;\n    }\n}\n\n@media (min-width:1200px) {\n    html {\n        font-size: 16px;\n    }\n    .container {\n        width: 1100px;\n    }\n}\n\n.navTitle {\n    line-height: 2rem;\n    padding: 10px;\n    color: #fff;\n    font-size: 1.5rem;\n}\n\n.topPicShow {\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\n    height: 37.5rem;\n    background-repeat: no-repeat;\n    background-size: 100%;\n    filter: blur(1px);\n}",".tabSwitch {\n    position: relative;\n}\n\n.tab_head {\n    position: relative;\n}\n\n.tab_head li {\n    display: block;\n    flex: 1;\n    padding: 5px 10px;\n    border: 1px solid #ccc;\n}\n\n.tab_head li.active {\n    background: blueviolet;\n    color: #fff;\n}\n\n.tab_content {\n    position: relative;\n}\n\n.tab_content div {\n    display: none;\n}"],"sourceRoot":""}]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul,\nli {\n  list-style: none; }\n\n.setFlex {\n  display: flex;\n  display: -webkit-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  -webkit-justigy-content: flex-start; }\n\n.active {\n  background: blueviolet;\n  color: #fff; }\n\nheader {\n  position: relative;\n  background: #459AE9; }\n\n.container {\n  margin-left: auto;\n  margin-right: auto;\n  background: #459AE9; }\n\n@media (min-width: 768px) {\n  html {\n    font-size: 12px; }\n  .container {\n    width: 750px; } }\n\n@media (min-width: 1000px) {\n  html {\n    font-size: 14px; }\n  .container {\n    width: 900px; } }\n\n@media (min-width: 1200px) {\n  html {\n    font-size: 16px; }\n  .container {\n    width: 1100px; } }\n\n.navTitle {\n  line-height: 2rem;\n  padding: 10px;\n  color: #fff;\n  font-size: 1.5rem; }\n\n.topPicShow {\n  background-image: url(\"https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg\");\n  height: 37.5rem;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  filter: blur(1px); }\n\n.tabSwitch {\n  position: relative; }\n\n.tab_head {\n  position: relative; }\n\n.tab_head li {\n  display: block;\n  flex: 1;\n  padding: 5px 10px;\n  border: 1px solid #ccc; }\n", "", {"version":3,"sources":["/Users/chenfangzhong/Hunter/Galaxy/src/assets/common.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/intro.scss","/Users/chenfangzhong/Hunter/Galaxy/src/assets/tab.scss"],"names":[],"mappings":"AAAA;EACI,UAAS;EACT,WAAU,EACb;;AAED;;;;;EAKI,iBAAgB,EACnB;;AAGD;EACI,cAAa;EACb,sBAAqB;EACrB,oBAAmB;EACnB,4BAA2B;EAC3B,oCACJ,EAAE;;AAEF;EACI,uBAAsB;EACtB,YAAW,EACd;;ACzBD;EACI,mBAAkB;EAClB,oBDWW,ECVd;;AAED;EACI,kBAAiB;EACjB,mBAAkB;EAClB,oBDKW,ECJd;;AAED;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,aAAY,EACf,EAAA;;AAGL;EACI;IACI,gBAAe,EAClB;EACD;IACI,cAAa,EAChB,EAAA;;AAGL;EACI,kBAAiB;EACjB,cAAa;EACb,YAAW;EACX,kBAAiB,EACpB;;AAED;EACI,kHAAiH;EACjH,gBAAe;EACf,6BAA4B;EAC5B,sBAAqB;EACrB,kBAAiB,EACpB;;ACnDD;EACI,mBAAkB,EACrB;;AAED;EACI,mBAAkB,EACrB;;AAED;EACI,eAAc;EACd,QAAO;EACP,kBAAiB;EACjB,uBAAsB,EACzB","file":"main.scss","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}\n\ndl,\ndt,\ndd,\nul,\nli {\n    list-style: none;\n}\n\n$theme :#459AE9;\n.setFlex {\n    display: flex;\n    display: -webkit-flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    -webkit-justigy-content: flex-start\n}\n\n.active {\n    background: blueviolet;\n    color: #fff;\n}","header {\n    position: relative;\n    background: $theme;\n}\n\n.container {\n    margin-left: auto;\n    margin-right: auto;\n    background: $theme;\n}\n\n@media(min-width:768px) {\n    html {\n        font-size: 12px;\n    }\n    .container {\n        width: 750px;\n    }\n}\n\n@media(min-width:1000px) {\n    html {\n        font-size: 14px;\n    }\n    .container {\n        width: 900px;\n    }\n}\n\n@media (min-width:1200px) {\n    html {\n        font-size: 16px;\n    }\n    .container {\n        width: 1100px;\n    }\n}\n\n.navTitle {\n    line-height: 2rem;\n    padding: 10px;\n    color: #fff;\n    font-size: 1.5rem;\n}\n\n.topPicShow {\n    background-image: url('https://img.alicdn.com/imgextra/i4/786678272/TB2G_dJdutTMeFjSZFOXXaTiVXa_!!786678272.jpg');\n    height: 37.5rem;\n    background-repeat: no-repeat;\n    background-size: 100%;\n    filter: blur(1px);\n}",".tabSwitch {\n    position: relative;\n}\n\n.tab_head {\n    position: relative;\n}\n\n.tab_head li {\n    display: block;\n    flex: 1;\n    padding: 5px 10px;\n    border: 1px solid #ccc;\n}"],"sourceRoot":""}]);
 
 // exports
 
