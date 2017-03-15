@@ -11,13 +11,13 @@
 <body>
     <div class="test">
         <div id="tabSwitch" amt="tab">
-            <div class="tab_head setFlex">
+            <div class="tab_head setFlex" id="tab_head">
                 <li>tab1</li>
                 <li>tab2</li>
                 <li>tab3</li>
                 <li>tab4</li>
             </div>
-            <div class="tab_content">
+            <div class="tab_content" id="tab_content">
                 <div>
                     content1
                 </div>
@@ -35,10 +35,15 @@
     </div>
     <script src="../../build.js"></script>
     <script>
-        var tabView = new DS.Tab({
-            mainHook: 'tabSwitch',
-            tabHook: '.tab_head',
-            contentHook: '.tab_content'
+        // var tabView = new DS.Tab({
+        //     mainHook: 'tabSwitch',
+        //     tabHook: '.tab_head',
+        //     contentHook: '.tab_content'
+        // });
+        var tabView2 = new DS.Tab2({
+            container: "tabSwitch",
+            tabH: 'tab_head',
+            tabC: 'tab_content'
         });
     </script>
 </body>
