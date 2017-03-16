@@ -63,14 +63,47 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = window.$;
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Father
+ */
+
+var Core = function () {
+    function Core(config) {
+        _classCallCheck(this, Core);
+
+        this.config = config;
+        this.initFn();
+    }
+
+    _createClass(Core, [{
+        key: "initFn",
+        value: function initFn() {
+            this.checkAmt();
+        }
+    }]);
+
+    return Core;
+}();
+
+exports.default = Core;
 
 /***/ }),
 /* 1 */
@@ -103,10 +136,10 @@ exports.default = { FullScreen: _FullScreen2.default, Tab: _Tab2.default };
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(7);
+var content = __webpack_require__(6);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(9)(content, {});
+var update = __webpack_require__(8)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -156,27 +189,33 @@ module.exports = g;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/*auto create*/
-var $ = __webpack_require__(0);
+var _core = __webpack_require__(0);
 
-var options = void 0;
-var FullScreen = {
-    init: init
-};
+var _core2 = _interopRequireDefault(_core);
 
-function init(param) {
-    options = $.extend({
-        title: 'Hello DeluxSlide',
-        subTitle: 'This is FirstApp'
-    }, param);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-    console.log(options);
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-exports.default = FullScreen;
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*auto create*/
+
+
+var FullScreen = function (_Core) {
+    _inherits(FullScreen, _Core);
+
+    function FullScreen(config) {
+        _classCallCheck(this, FullScreen);
+
+        var _this = _possibleConstructorReturn(this, (FullScreen.__proto__ || Object.getPrototypeOf(FullScreen)).call(this));
+
+        _this.fatherWrap = config.fatherWrap;
+        return _this;
+    }
+
+    return FullScreen;
+}(_core2.default);
 
 /***/ }),
 /* 5 */
@@ -191,9 +230,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _core = __webpack_require__(6);
+var _core = __webpack_require__(0);
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -203,85 +240,108 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*auto create*/
-
-
-var $ = __webpack_require__(0);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Tab = function (_Core) {
     _inherits(Tab, _Core);
 
-    function Tab(options) {
+    function Tab(config) {
         _classCallCheck(this, Tab);
 
-        return _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, options));
+        var _this2 = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
+
+        _this2.container = config.container;
+        _this2.tabH = config.tabH;
+        _this2.tabC = config.tabC;
+
+        _this2.tabH_child = _this2.getNodesIsTheSameLevel(_this2.tabH);
+        _this2.tabC_child = _this2.getNodesIsTheSameLevel(_this2.tabC);
+
+        _this2.initFn();
+        return _this2;
     }
 
     _createClass(Tab, [{
-        key: 'initFn',
-        value: function initFn() {
-            _get(Tab.prototype.__proto__ || Object.getPrototypeOf(Tab.prototype), 'initFn', this).call(this);
-            if (this.Amt) {
-                this.initEvent();
-            } else {
-                throw 'Please Check You \'amt\' tag';
+        key: "loop",
+        value: function loop(begin, length, callback) {
+            for (var i = begin; i < length; i++) {
+                callback(i);
             }
         }
     }, {
-        key: 'initEvent',
-        value: function initEvent() {
-            var _this2 = this;
+        key: "$class",
+        value: function $class(dom) {
+            return document.getElementsByClassName(dom);
+        }
+    }, {
+        key: "$id",
+        value: function $id(dom) {
+            return document.getElementById(dom);
+        }
+    }, {
+        key: "onEvent",
+        value: function onEvent(action, selector, callback) {
+            selector.addEventListener(action, function (event) {
+                callback(event);
+            }, false);
+        }
+    }, {
+        key: "getNodesIsTheSameLevel",
+        value: function getNodesIsTheSameLevel(dom) {
+            var ele = this.$id(dom).childNodes;
+            var elemArr = [];
+            this.loop(0, ele.length, function (i) {
+                if (ele[i].tagName && ele[i].tagName === "DIV" || ele[i].tagName === "LI") {
+                    elemArr.push(ele[i]);
+                }
+            });
+            return elemArr;
+        }
+    }, {
+        key: "initFn",
+        value: function initFn() {
+            var _this = this;
+            this.initSelected();
 
-            // let t_h = this.Hook.tabHook;
-            // let _hook = document.getElementById(t_h).querySelectorAll('li');
-            // var _ = this;
-            // [..._hook].forEach((val, index) => {
-            //     val.addEventListener('click', _.onclick, false)
-            // });
-            var trigger = this.tab_title;
-            this.initSet();
-            $(document).on('click', trigger, function (e) {
-                var $this = $(e.currentTarget);
-                var index = $this.index();
-                _this2.selector($this, index);
+            this.loop(0, this.tabH_child.length, function (tag) {
+                _this.onEvent('click', _this.tabH_child[tag], function (event) {
+                    _this.selectActive(event);
+                    _this.selectContent(event, tag);
+                });
             });
         }
     }, {
-        key: 'initSet',
-        value: function initSet() {
-            var trigger = this.tab_title;
-            var content = this.tab_content;
-            //li
-            $(trigger).removeClass('active');
-            $(trigger).eq(0).addClass('active');
-            //content
-            $(content).hide();
-            $(content).eq(0).show();
+        key: "selectActive",
+        value: function selectActive(event) {
+            var _this = this;
+            _this.loop(0, _this.tabH_child.length, function (tag) {
+                _this.tabH_child[tag].classList.remove('active');
+            });
+            if (!Array.from(event.target.classList).includes('active')) {
+                event.target.classList.add('active');
+            }
         }
     }, {
-        key: 'selector',
-        value: function selector(dom, index) {
-            var trigger = this.tab_title;
-            $(trigger).removeClass('active');
-            dom.addClass('active');
-            this.selectDom(index);
+        key: "selectContent",
+        value: function selectContent(event, tag) {
+            var _this = this;
+            _this.loop(0, _this.tabC_child.length, function (tag) {
+                _this.tabC_child[tag].style.display = "none";
+            });
+            if (_this.tabC_child[tag].style.display !== 'block') {
+                _this.tabC_child[tag].style.display = "block";
+            }
         }
     }, {
-        key: 'selectDom',
-        value: function selectDom(index) {
-            var content = this.tab_content;
-            $(content).hide();
-            $(content).eq(index).show();
-        }
-    }, {
-        key: 'tab_title',
-        get: function get() {
-            return this.Hook.tabHook + '>li';
-        }
-    }, {
-        key: 'tab_content',
-        get: function get() {
-            return this.Hook.contentHook + '>div';
+        key: "initSelected",
+        value: function initSelected() {
+            var _this3 = this;
+
+            this.tabH_child[0].classList.add('active');
+            this.loop(0, this.tabC_child.length, function (i) {
+                _this3.tabC_child[i].style.display = "none";
+            });
+            this.tabC_child[0].style.display = 'block';
         }
     }]);
 
@@ -294,75 +354,7 @@ exports.default = Tab;
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Father
- */
-
-var Core = function () {
-    function Core(options) {
-        _classCallCheck(this, Core);
-
-        this.options = options;
-        this.Amt = false;
-        this.initFn();
-    }
-
-    _createClass(Core, [{
-        key: "initFn",
-        value: function initFn() {
-            this.checkAmt();
-        }
-    }, {
-        key: "initEvent",
-        value: function initEvent() {
-            return true;
-        }
-    }, {
-        key: "checkAmt",
-        value: function checkAmt() {
-            var hasTagAmt = this.getDom.hasAttribute('amt');
-            if (hasTagAmt) {
-                this.Amt = true;
-            }
-        }
-    }, {
-        key: "getDom",
-        get: function get() {
-            var dom = document.getElementById(this.options.mainHook);
-            return dom;
-        }
-    }, {
-        key: "Hook",
-        get: function get() {
-            return {
-                "mainHook": this.options.mainHook,
-                "tabHook": this.options.tabHook,
-                "contentHook": this.options.contentHook
-            };
-        }
-    }]);
-
-    return Core;
-}();
-
-exports.default = Core;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)();
+exports = module.exports = __webpack_require__(7)();
 // imports
 
 
@@ -373,7 +365,7 @@ exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\ndl,\ndt,\ndd,\nul
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /*
@@ -429,7 +421,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /*
@@ -681,7 +673,7 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

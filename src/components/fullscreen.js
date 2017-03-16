@@ -1,18 +1,12 @@
 /*auto create*/
-var $ = require('jquery');
+import Core from './core';
 
-let options;
-const FullScreen = {
-    init: init
+class FullScreen extends Core {
+    constructor(config) {
+        super();
+        this.fatherWrap = config.fatherWrap;
+    }
+
+
+
 }
-
-function init(param) {
-    options = $.extend({
-        title: 'Hello DeluxSlide',
-        subTitle: 'This is FirstApp'
-    }, param);
-
-    console.log(options);
-}
-
-export default FullScreen

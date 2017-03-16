@@ -9,9 +9,14 @@
 </head>
 
 <body>
+    <section id="fullscreen">
+
+    </section>
     <script src="../../build.js"></script>
     <script>
-        DS.FullScreen.init()
+        new DS.FullScreen({
+            fatherWrap: 'fullscreen'
+        })
     </script>
 </body>
 

@@ -1,16 +1,8 @@
 import Core from './core';
 
-class Tab {
+class Tab extends Core {
     constructor(config) {
-        this.container = config.container;
-        this.tabH = config.tabH;
-        this.tabC = config.tabC;
-
-        this.tabH_child = this.getNodesIsTheSameLevel(this.tabH);
-        this.tabC_child = this.getNodesIsTheSameLevel(this.tabC);
-
-
-        this.initFn();
+        super(config);
     }
     loop(begin, length, callback) {
         for (var i = begin; i < length; i++) {
@@ -45,6 +37,7 @@ class Tab {
 
     initFn() {
         var _this = this;
+        this.initParam();
         this.initSelected();
 
         this.loop(0, this.tabH_child.length, function(tag) {
@@ -54,7 +47,13 @@ class Tab {
             })
         });
     }
-
+    initParam() {
+        this.container = this.config.container;
+        this.tabH = this.config.tabH;
+        this.tabC = this.config.tabC;
+        this.tabH_child = this.getNodesIsTheSameLevel(this.tabH);
+        this.tabC_child = this.getNodesIsTheSameLevel(this.tabC);
+    }
     selectActive(event) {
         var _this = this;
         _this.loop(0, _this.tabH_child.length, (tag) => {
